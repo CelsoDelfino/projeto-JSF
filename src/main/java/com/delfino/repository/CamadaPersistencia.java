@@ -12,7 +12,8 @@ import com.delfino.model.RamoAtividade;
 import com.delfino.model.TipoEmpresa;
 
 public class CamadaPersistencia {
-	public static void Main(String[] args) {
+	
+	public static void main(String[] args){
 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceUnitName");
 
