@@ -12,26 +12,24 @@ import com.delfino.model.TipoEmpresa;
 @ViewScoped
 public class GestaoEmpresasBean implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    
-    private Empresa empresa = new Empresa();
-    
-    public void salvar() {
-        System.out.println("Razão social: " + empresa.getRazaoSocial()
-                + " - Nome fantasia: " + empresa.getNomeFantasia()
-                + " - Tipo: " + empresa.getTipo());
-    }
-    
-    public String ajuda() {
-        return "AjudaGestaoEmpresas?faces-redirect=true";
-    }
-   
-    
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-    
-    public TipoEmpresa[] getTiposEmpresa() {
-        return TipoEmpresa.values();
-    }
+	private static final long serialVersionUID = 1L;
+
+	private Empresa empresa = new Empresa();
+
+	public void salvar() {
+		System.out.println("Razão social: " + empresa.getRazaoSocial() + " - Nome fantasia: "
+				+ empresa.getNomeFantasia() + " - Tipo: " + empresa.getTipo());
+	}
+
+	public String ajuda() {
+		return "AjudaGestaoEmpresas?faces-redirect=true";
+	}
+
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public TipoEmpresa[] getTiposEmpresa() {
+		return TipoEmpresa.values();
+	}
 }

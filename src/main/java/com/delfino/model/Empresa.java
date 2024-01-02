@@ -1,6 +1,7 @@
 package com.delfino.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
@@ -19,35 +20,44 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "empresa")
-public class Empresa implements Serializable{
+public class Empresa implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "nome_fantasia", nullable = false, length = 80)
 	private String nomeFantasia;
-	
+
 	@Column(name = "razao_social", nullable = false, length = 120)
 	private String razaoSocial;
-	
+
 	@Column(nullable = false, length = 18)
 	private String cnpj;
-	
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_fundacao")
 	private Date dataFundacao;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "ramo_atividade_id", nullable = false)
 	private RamoAtividade ramoAtividade;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 30)
 	private TipoEmpresa tipo;
-	
-	
+
+	@Column(precision = 10, scale = 2)
+	private BigDecimal faturamento;
+
+	public BigDecimal getFaturamento() {
+		return faturamento;
+	}
+
+	public void setFaturamento(BigDecimal faturamento) {
+		this.faturamento = faturamento;
+	}
 
 	public TipoEmpresa getTipo() {
 		return tipo;
@@ -126,8 +136,5 @@ public class Empresa implements Serializable{
 	public String toString() {
 		return "Empresa [id=" + id + "]";
 	}
-	
-	
-	
-	
+
 }
