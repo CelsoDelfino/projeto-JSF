@@ -15,7 +15,6 @@ public class Empresas implements Serializable {
 
 	@Inject
 	private EntityManager manager;
-<<<<<<< HEAD
 	
 	private Empresa empresa;
 	
@@ -23,19 +22,8 @@ public class Empresas implements Serializable {
 		this.manager = manager;
 	}
 	
-	public Empresas() {
-		// TODO Auto-generated constructor stub
-	}
-	
-=======
-
 	public Empresas() {}
 
-	public Empresas(EntityManager manager) {
-		this.manager = manager;
-	}
-
->>>>>>> fdff7f4448aea028e9cc045b35151e638d49d8bf
 	public Empresa porId(Long id) {
 		return manager.find(Empresa.class, id);
 	}
@@ -52,15 +40,10 @@ public class Empresas implements Serializable {
 	}
 	
 	public List<Empresa> todas() {
-<<<<<<< HEAD
+
         return manager.createQuery("from Empresa", Empresa.class).getResultList();
    }
-	
-=======
-         return manager.createQuery("from Empresa", Empresa.class).getResultList();
-    }
 
->>>>>>> fdff7f4448aea028e9cc045b35151e638d49d8bf
 	public Empresa guardar(Empresa empresa) {
 		return manager.merge(empresa);
 	}
